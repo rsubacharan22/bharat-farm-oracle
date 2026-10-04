@@ -10,33 +10,90 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdvisorRouteImport } from './routes/advisor'
+import { Route as HealthRouteImport } from './routes/health'
+import { Route as ImpactRouteImport } from './routes/impact'
+import { Route as SimulatorRouteImport } from './routes/simulator'
+import { Route as TwinRouteImport } from './routes/twin'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdvisorRoute = AdvisorRouteImport.update({
+  id: '/advisor',
+  path: '/advisor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HealthRoute = HealthRouteImport.update({
+  id: '/health',
+  path: '/health',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpactRoute = ImpactRouteImport.update({
+  id: '/impact',
+  path: '/impact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SimulatorRoute = SimulatorRouteImport.update({
+  id: '/simulator',
+  path: '/simulator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TwinRoute = TwinRouteImport.update({
+  id: '/twin',
+  path: '/twin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/advisor': typeof AdvisorRoute
+  '/health': typeof HealthRoute
+  '/impact': typeof ImpactRoute
+  '/simulator': typeof SimulatorRoute
+  '/twin': typeof TwinRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/advisor': typeof AdvisorRoute
+  '/health': typeof HealthRoute
+  '/impact': typeof ImpactRoute
+  '/simulator': typeof SimulatorRoute
+  '/twin': typeof TwinRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/advisor': typeof AdvisorRoute
+  '/health': typeof HealthRoute
+  '/impact': typeof ImpactRoute
+  '/simulator': typeof SimulatorRoute
+  '/twin': typeof TwinRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/advisor' | '/health' | '/impact' | '/simulator' | '/twin'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/advisor' | '/health' | '/impact' | '/simulator' | '/twin'
+  id:
+    | '__root__'
+    | '/'
+    | '/advisor'
+    | '/health'
+    | '/impact'
+    | '/simulator'
+    | '/twin'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdvisorRoute: typeof AdvisorRoute
+  HealthRoute: typeof HealthRoute
+  ImpactRoute: typeof ImpactRoute
+  SimulatorRoute: typeof SimulatorRoute
+  TwinRoute: typeof TwinRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +105,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/advisor': {
+      id: '/advisor'
+      path: '/advisor'
+      fullPath: '/advisor'
+      preLoaderRoute: typeof AdvisorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/health': {
+      id: '/health'
+      path: '/health'
+      fullPath: '/health'
+      preLoaderRoute: typeof HealthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impact': {
+      id: '/impact'
+      path: '/impact'
+      fullPath: '/impact'
+      preLoaderRoute: typeof ImpactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/simulator': {
+      id: '/simulator'
+      path: '/simulator'
+      fullPath: '/simulator'
+      preLoaderRoute: typeof SimulatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/twin': {
+      id: '/twin'
+      path: '/twin'
+      fullPath: '/twin'
+      preLoaderRoute: typeof TwinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdvisorRoute: AdvisorRoute,
+  HealthRoute: HealthRoute,
+  ImpactRoute: ImpactRoute,
+  SimulatorRoute: SimulatorRoute,
+  TwinRoute: TwinRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
