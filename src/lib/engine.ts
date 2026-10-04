@@ -48,7 +48,7 @@ export const STAGE_PARAMS: Record<CropStage, { kc: number; mad: number; rootMm: 
 };
 
 export const DEFAULT_SCENARIO: Scenario = {
-  soilMoisture: 27,
+  soilMoisture: 33,
   rainForecast: 2,
   cropStage: "Flowering",
   et0: 5.2,
