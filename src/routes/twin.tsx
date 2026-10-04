@@ -18,7 +18,7 @@ export const Route = createFileRoute("/twin")({
 function Layer({ label, depth, value }: { label: string; depth: string; value: number }) {
   const pct = Math.min(100, (value / 55) * 100);
   return (
-    <div className="relative flex h-24 items-center border-t border-border/60 px-4" style={{ background: `color-mix(in oklch, var(--water) ${pct * 0.6}%, var(--soil))` }}>
+    <div className="relative flex h-24 items-center border-t border-border/60 px-4" style={{ background: `color-mix(in srgb, var(--water) ${pct * 0.6}%, var(--soil))` }}>
       <div className="text-soil-foreground">
         <div className="text-xs opacity-80">{depth}</div>
         <div className="font-semibold">{label}</div>
